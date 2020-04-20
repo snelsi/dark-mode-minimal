@@ -1,0 +1,10 @@
+:root[data-theme='dark'] {
+  --color-text: hsl(0deg, 0%, 100%);
+  --color-background: hsl(250deg, 70%, 7%);
+  --color-primary: hsl(50deg, 100%, 50%);
+  --color-secondary: hsl(190deg, 100%, 40%);
+
+  --color-gray300: hsl(0deg, 0%, 30%);
+  --color-gray500: hsl(0deg, 0%, 50%);
+  --color-gray700: hsl(0deg, 0%, 70%);
+}
