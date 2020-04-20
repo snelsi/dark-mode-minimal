@@ -1,7 +1,11 @@
 import { createLocalStorageStateHook } from 'use-local-storage-state';
 
-const getDefaultTheme = () =>
-  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+const getDefaultTheme = () => {
+  if (typeof window === 'undefined') return 'light';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+};
 
 export const useThemeStore = createLocalStorageStateHook(
   'preffered-theme',
