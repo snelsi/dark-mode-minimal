@@ -9,6 +9,9 @@ const codeToRunOnClient = `
 
   if (theme) {
     document.documentElement.dataset.theme = theme;
+  } else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
   }
 })()
 `;
