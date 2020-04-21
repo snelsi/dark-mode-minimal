@@ -1,21 +1,11 @@
 import { createLocalStorageStateHook } from 'use-local-storage-state';
 
-const getDefaultTheme = () => {
-  if (typeof window === 'undefined') return 'light';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
-};
-
-export const useThemeStore = createLocalStorageStateHook(
-  'preffered-theme',
-  getDefaultTheme()
-);
+export const useThemeStore = createLocalStorageStateHook('preffered-theme', 'system');
 
 export function useTheme() {
   if (typeof window === 'undefined') {
     return {
-      theme: 'light',
+      theme: 'system',
       setTheme: () => {
         throw new Error(
           'Setting a theme is not supported inside server-side rendered apps'

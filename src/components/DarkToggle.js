@@ -1,20 +1,47 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { useTheme } from '../scripts/useTheme';
 
-const DarkToggle = () => {
-  const { theme, toggleTheme } = useTheme();
+const ThemeSelection = () => {
+  const { theme, setTheme } = useTheme();
 
   return (
-    <label>
-      <input
-        type="checkbox"
-        checked={theme === 'dark'}
-        onChange={toggleTheme}
-      />{' '}
-      Dark
-    </label>
+    <Container>
+      <label>
+        <input
+          type="radio"
+          name="theme-select"
+          checked={theme === 'light'}
+          onChange={() => setTheme('light')}
+        />{' '}
+        Light
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="theme-select"
+          checked={theme === 'dark'}
+          onChange={() => setTheme('dark')}
+        />{' '}
+        Dark
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="theme-select"
+          checked={!theme || theme === 'system'}
+          onChange={() => setTheme('system')}
+        />{' '}
+        System
+      </label>
+    </Container>
   );
 };
 
-export default DarkToggle;
+const Container = styled.div`
+  display: grid;
+  gap: 1em;
+`;
+
+export default ThemeSelection;

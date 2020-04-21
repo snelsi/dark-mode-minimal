@@ -5,13 +5,14 @@ import App from './src/components/App';
 
 const codeToRunOnClient = `
 (function() {
-  const theme = JSON.parse(localStorage.getItem("preffered-theme"));
+  try {
+    const theme = JSON.parse(localStorage.getItem("preffered-theme"));
 
-  if (theme) {
-    document.documentElement.dataset.theme = theme;
-  } else {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+    if (theme) {
+      document.documentElement.dataset.theme = theme;
+    }
+  } catch {
+    localStorage.removeItem('preffered-theme');
   }
 })()
 `;
