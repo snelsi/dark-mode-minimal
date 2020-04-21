@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import DarkToggle from './DarkToggle';
+import ThemeSelection from './ThemeSelection';
 
 const Header = ({ siteTitle }) => {
   return (
     <Wrapper>
       {siteTitle}
-      <DarkToggle />
+      <ThemeSelection />
     </Wrapper>
   );
 };
